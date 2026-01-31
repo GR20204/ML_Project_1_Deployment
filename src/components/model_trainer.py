@@ -18,7 +18,7 @@ from src.utils import save_object
 from src.utils import evaluate_models
 @dataclass
 class ModelTrainerConfig:
-    trained_model_file_path = os.path.join('artifacts',"model.pkl")
+    trained_model_file_path = os.path.join('artifact',"model.pkl")
 
 class ModelTrainer:
     def __init__(self):
@@ -54,8 +54,8 @@ class ModelTrainer:
                 raise CustomException("NO BEST MODEL FOUND")
             
             save_object(
-                file_path= self.model_trainer_config.trained_model_file_path,
-                obj = best_model
+                file_path=self.model_trainer_config.trained_model_file_path,
+                obj=best_model
             )
             predicted = best_model.predict(xtest)
             r2_sq = r2_score(ytest,predicted)
